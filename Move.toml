@@ -1,0 +1,22 @@
+[package]
+name = "uniport"
+version = "1.0.0"
+authors = []
+
+[addresses]
+uniport = "_"
+
+[dev-addresses]
+uniport = "0x42"
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-core.git"
+rev = "mainnet"
+subdir = "aptos-move/framework/aptos-framework"
+
+[dependencies.MoveStdlib]
+git = "https://github.com/aptos-labs/aptos-core.git"
+rev = "mainnet"
+subdir = "aptos-move/framework/move-stdlib"
+
+[dev-dependencies]
