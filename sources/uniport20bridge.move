@@ -40,12 +40,9 @@ module uniport::uniport20bridge {
     const E_CHAIN_ID_NOT_SUPPORT: u64 = 2;
     const E_CHAIN_ID_FEE_NOT_SET: u64 = 3;
     const E_TXID_ALREADY_USED: u64 = 4;
-    const E_INSUFFICIENT_FEE: u64 = 5;
-    const E_AMOUNT_TOO_LARGE: u64 = 6;
     const E_NOT_FEE_MANAGER: u64 = 7;
     const E_DUPLICATE_SYMBOL: u64 = 8;
     const E_NOT_MULTI_SIGNER: u64 = 9;
-    const E_NOT_ADMIN: u64 = 10;
     const E_SAME_ADDRESS: u64 = 11;
 
     const ZERO_ADDRESS: address = @0x0;
@@ -195,7 +192,6 @@ module uniport::uniport20bridge {
         let coin = coin::withdraw<T>(sender, burnAmount);
         let aptos = coin::withdraw<AptosCoin>(sender, fee);
         let pool = borrow_global_mut<Pool<T>>(@uniport);
-        let bridgeState = borrow_global_mut<BridgeState>(@uniport);
         coin::merge(&mut bridgeState.aptos, aptos);
         coin::burn(coin, &pool.burn_cap);
 
